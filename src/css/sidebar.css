@@ -1,0 +1,18 @@
+side-nav {
+      background: #fff;
+    }
+    
+    .side-nav .nav-item {
+      color: #555;
+      display: block;
+      padding: 10px 20px;
+    }
+    
+    .side-nav .nav-item.active,
+    .side-nav .nav-item.router-link-active {
+      color: #fd521d;
+    }
+    
+    .side-nav .nav-item:hover {
+      background: rgba(0, 0, 0, .02);
+    }

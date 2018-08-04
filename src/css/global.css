@@ -1,0 +1,127 @@
+
+img{
+    display: block;
+    width:100%;
+    margin-bottom: 20px;
+    
+}
+
+input[type=radio],
+input[type=checkbox]{
+  width:auto;
+}
+
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align: right;
+}
+
+  body {
+    background: #eee;
+    /* background-image: url(../img/bg.png); */
+    -webkit-background-size: 10%;
+    background-size: 10%;
+    
+   
+  }
+
+  .btn-primary {
+   
+    background-color:rgb(231, 160, 160);
+    border-color: rgb(231, 160, 160);
+   
+    -webkit-background-size: 100%;background-size: 100%;
+    text-shadow: 0 0 1px rgba(0, 0, 0, .4);
+  }
+  .btn-primary:hover{
+      background: rgb(243, 154, 154); 
+      border-color:rgb(243, 154, 154); 
+  }
+
+  .btn-large {
+    font-size: 2rem;
+    padding: .3em 1em;
+  }
+textarea,
+button,
+.btn,
+input {
+  outline: 0;
+  padding: 8px;
+ border:2px solid rosybrown ;
+ 
+}
+.input-control{
+  margin-top: 15px;
+}
+
+fieldset[disabled] button,
+fieldset[disabled] input,
+fieldset[disabled] textarea,
+button[disabled],
+input[disabled],
+textarea[disabled] {
+  
+  opacity: .8;
+  cursor: not-allowed;
+}
+
+
+
+
+button{
+  background: rgb(231, 160, 160); 
+  border-color: rgb(231, 160, 160);
+  
+}
+.btn-group button:last-child{
+  margin-left: 10px;
+  
+}
+
+.error
+{
+  margin: 20px 0;
+  padding: 10px;
+  background: rgb(231, 160, 160);
+  color: #fff;
+}
+
+.input-control label{
+  display: block;
+
+}
+.input-control input,
+input{
+  width: 100%;
+  border:2px solid rosybrown;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr:hover {
+  background:rgb(243, 232, 232);
+}
+td{
+  padding:5px 10px;
+}
+.cute-form{
+  padding:5px 10px;
+}
+.anchor:hover{
+  cursor: pointer;
+
+}
+.disabled{
+  pointer-events: none;
+  opacity: 0.7;
+}

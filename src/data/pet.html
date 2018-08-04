@@ -1,0 +1,55 @@
+<script src="../../node_modules/axios/dist/axios.js";></script>
+<script src="../data/api.js"></script>
+
+<script>
+ const model = {
+ 	    key       : 'pet',
+ 	    structure : {
+ 	      title       : { type : 'string' },
+ 	      color       : { type : 'string' },
+ 	      cover_url   : { type : 'string' },
+ 	      description : { type : 'text' },
+ 	      origin      : { type : 'json' },
+ 	      price       : { type : 'float' },
+ 	      character   : { type : 'string' },
+ 	      birthday    : { type : 'date' },
+ 	      sex         : { type : 'boolean' },
+ 	      neuter      : { type : 'boolean' },
+ 	      vaccinated  : { type : 'boolean' },
+ 	      disease     : { type : 'boolean' },
+ 	      pure_breed  : { type : 'boolean' },
+ 	      breed_id    : { type : 'integer', positive : true },
+ 	      category_id : { type : 'integer', positive : true },
+ 	    },
+ 	  };
+  //api('MODEL/DELETE',{key:'pet'});
+  //api('MODEL/CREATE',model)
+  
+	// api('PROPERTY/CREATE', {
+  // 	   key       : 'hot',
+  // 	   model     : 'pet',
+  // 	   structure : {
+  // 	     type : 'boolean',
+  // 	   },
+  // 	 });
+	// api('PROPERTY/CREATE', {
+ 	//    key       : 'promoting',
+ 	//    model     : 'pet',
+ 	//    structure : {
+  //         type : 'boolean',
+  //         default:false,
+ 	//    },
+	// 	});
+	//	api('PROPERTY/DELETE', { model : 'pet', key : 'promoting' });
+
+
+// api('MODEL/ATTACH_MOCK', {
+//     key : 'pet',
+  
+//     mock : {
+//       price : { mocker : 'randomDigit' },
+//       title : { mocker : 'sentence' },
+//     },
+//   });
+//api('pet/seed',{amount:20})
+</script>

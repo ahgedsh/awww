@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+    <router-view></router-view> 
+    <ToolBar /> 
+   
+   <!-- <dropdown :onSelect="tmp" :list="[
+   {name:'whh',id:1},
+   {name:'lbb',id:2},
+   {name:'lsd',id:3},
+   ]"/> -->
+   </div> 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ToolBar from './components/ToolBar';
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    ToolBar,
+  
+    
+  },
+
+ 
+};
+ 
+  
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
+

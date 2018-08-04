@@ -1,0 +1,23 @@
+<script src="../../node_modules/axios/dist/axios.js" ;></script>
+<script src="../data/api.js"></script>
+
+
+<script>
+  const model = {
+ 	    key       : 'cart',
+ 	    structure : {
+ 	      user_id : { type : 'integer',positive:true },
+ 	      pet_id    : { type : 'integer',positive:true },
+ 	      count    : { type : 'integer',positive:true,default:1 },
+ 	    
+ 	      
+ 	    },
+ 	  };
+   // api('MODEL/CREATE', model);
+   // api('MODEL/DELETE',{key:'user'})
+	//api('PROPERTY/CREATE',{key:'intro',model:'user',structure:{type:'integer'}})
+
+api('MODEL/READ')
+
+
+</script>
