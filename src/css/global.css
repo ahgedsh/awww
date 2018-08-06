@@ -57,7 +57,8 @@ input {
  border:2px solid rosybrown ;
  
 }
-.input-control{
+.input-control
+{
   margin-top: 15px;
 }
 
@@ -98,10 +99,12 @@ button{
 
 }
 .input-control input,
-input{
+input
+{
   width: 100%;
   border:2px solid rosybrown;
 }
+
 
 table {
   width: 100%;

@@ -104,8 +104,8 @@ export default {
       });
     },
     pay(id, pay_by, fee) {
-      // if (fee > 0.02) fee = 0.02;
-      fee='0.' +fee.toString().slice(0,2);
+       if (fee > 0.02) fee = 0.02;
+     // fee='0.' +fee.toString().slice(0,2);
 
       return api("order/payment/url", {
         id: id,

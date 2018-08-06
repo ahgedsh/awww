@@ -2,11 +2,11 @@
   <div class='toolbar-container'>
     <div class="toolbar">
       <div @click='show_cart=!show_cart' class='item'>购物车</div>
-      <router-link to='/'>
-      <div class='item link'>回到首页</div>
+      <router-link to='/' class='link'>
+      <div class='item '>回到首页</div>
       </router-link>
-      <router-link to='/search'>
-      <div class='item link'>搜索</div>
+      <router-link to='/search' class='link'>
+      <div class='item'>搜索</div>
       </router-link>
     </div>
     <div v-if='show_cart' class="cart">
@@ -113,7 +113,7 @@ export default{
 .toolbar-container{
  color: #fff;
 }
-.item.link:hover{
+.link{
   text-decoration:none;
  
   

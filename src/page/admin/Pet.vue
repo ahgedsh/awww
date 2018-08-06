@@ -137,7 +137,7 @@
                     
                     <td>{{row.price}}</td>
 
-                    <td>{{row.$category && row.$category.name ||'-'}}</td>
+                    <td>{{row.$category && row.$category.id ||'-'}}</td>
                     <td>{{row.$category && row.$category.name ||'-'}}</td>
 
                     <td>
@@ -187,7 +187,7 @@ export default {
       breed_list: [],
 
       model: "pet",
-      searchable: ["name"],
+      searchable: ["title"],
 
       with: [{ model: "category", relation: "has_one" }],
       with: [{ model: "breed", relation: "has_one" }]
@@ -204,6 +204,7 @@ export default {
     read_breed() {
       api("breed/read").then(r => {
         this.breed_list = r.data;
+        console.log(this.breed_list);
       });
     },
     set_category_id(row) {

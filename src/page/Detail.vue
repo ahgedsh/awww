@@ -6,7 +6,7 @@
         <div class="container">
     <div class="silder">
       <div>
-        <img src="../assets/img/silder.jpg" alt="yo">
+        <img :src="current.cover_url" alt="yo">
 
       </div>
       <div class="mask "></div>
@@ -48,13 +48,13 @@
               </div>
 
             </div>
-              <h1>你瞅啥</h1>
+              <h1>{{current.title}}</h1>
     
               
       
           </div>
          
-          <router-link :to="`/new_order/${current.id}`" :class="`btn-primary btn-large buy ${current.id ? '':'disabled'}`">￥2000 购买</router-link>
+          <router-link :to="`/new_order/${current.id}`" :class="`btn-primary btn-large buy ${current.id ? '':'disabled'}`">￥{{current.price}} 购买</router-link>
            <button v-if='!pet_exist' @click='add_to_cart(current.id,1)'  class="btn-primary btn-large carts">加入购物车</button>
            <button v-else class="btn-primary btn-large other-carts"  disabled>已加入购物车</button>
 
@@ -127,7 +127,7 @@ export default {
     add_to_cart:add,
     find(){
       let id=this.$route.params.id;
-      api('pet/find',{id:id})
+      api('pet/find',{id})
          .then(r=>{
            this.current=r.data;
          })

@@ -7,8 +7,13 @@
            :placeholder="placeholder"
            :style="this.ownStyle"
            type="search">
-    <div v-if="show_menu && result.length" class="menu">
-      <div @click="select(row)" class="menu-item" v-for="row in result">{{row[displayKey]}}</div>
+    <div v-if="show_menu" class="menu">
+      <div v-if='result.length'>
+        <div @click="select(row)" class="menu-item" v-for="row in result">{{row[displayKey]}}</div>
+      </div>
+      <div v-else class="empty-holder">
+        暂无内容
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +24,9 @@
 
   export default {
     props   : {
+      immediate:{
+        default:true,
+      },
       placeholder : {
         default : '请选择',
       },
@@ -49,6 +57,7 @@
       this.api_conf = this.parse_api(); // 如果props.api是字符串，就应该将其解析为更好处理的对象类型
       let list      = this.list;
       list && (this.result = Object.assign([], this.list)); // 如果传了静态数据，就应该将静态数据拷一份，否则就会导致越搜索越少
+      this.immediate && this.search();
     },
     data () {
       return {
@@ -117,6 +126,8 @@
 
         if (this.onSelect)
           this.onSelect(row);
+
+          this.$emit('selected',row);
       },
 
       /**
@@ -151,7 +162,7 @@
         this.timer = setTimeout(() => {
           api(`${this.api_conf.model}/search`, { or : condition })
             .then(r => {
-              this.result = r.data;
+              this.result = r.data ||[];
             });
         }, 300);
       },
@@ -190,6 +201,8 @@
     position: relative;
     display: inline-block;
     background: #fff;
+    color:black;
+    text-align: left;
   }
 
   .selected,

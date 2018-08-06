@@ -6,9 +6,14 @@
 			<div>
 				<div class="cute-form">
 					<form @submit.prevent="submit('username')" v-if="show.username" class="input-group">
-						<input style="width: 60%;" type="text" v-model="current.username" autofocus>
+						<!-- <input style="width: 60%;" type="text" v-model="current.username" autofocus>
 						<button type="submit" style="width: 20%;" class="btn-primary">提交</button>
-						<button @click="show.username=false" type="button" style="width: 20%;">取消</button>
+						<button @click="show.username=false" type="button" style="width: 20%;">取消</button> -->
+						 <div class="input-group">
+							<input type="text"  v-model="current.username"  class="form-control">
+							<span type="submit" class="input-group-addon">提交</span>
+							<span   @click="show.username=false" type="button" class="input-group-addon">取消</span>
+           </div>
 					</form>
 					<div v-else>
 						<span class="key">用户名</span>
@@ -16,11 +21,18 @@
 						<span @click="show.username=!show.username" class="anchor">编辑</span>
 					</div>
 				</div>
+				
 				<div class="cute-form">
 					<form @submit.prevent="submit('intro')" v-if="show.intro" class="input-group">
-						<input style="width: 60%;" type="text" v-model="current.intro" autofocus>
+						<!-- <input style="width: 60%;" type="text" v-model="current.intro" autofocus>
 						<button type="submit" style="width: 20%;" class="btn-primary">提交</button>
-						<button @click="show.intro=false" type="button" style="width: 20%;">取消</button>
+						<button @click="show.intro=false" type="button" style="width: 20%;">取消</button> -->
+						<div class="input-group">
+							<input type="text"  v-model="current.intro"  class="form-control">
+							<span type="submit" class="input-group-addon">提交</span>
+							<span   @click="show.intro=false" type="button" class="input-group-addon">取消</span>
+
+						</div>
 					</form>
 					<div v-else>
 						<span class="key">签名</span>
@@ -35,10 +47,17 @@
 			<div>
 				<div class="cute-form">
 					<form @submit.prevent="change_password('password')" v-if="show.password" class="input-group">
-						<input style="width: 30%;" type="password" v-model="password.old" autofocus placeholder="旧密码">
+						<!-- <input style="width: 30%;" type="password" v-model="password.old" autofocus placeholder="旧密码">
 						<input style="width: 30%;" type="password" v-model="password.new" autofocus placeholder="新密码">
 						<button type="submit" style="width: 20%;" class="btn-primary">提交</button>
-						<button @click="show.password=false" type="button" style="width: 20%;">取消</button>
+						<button @click="show.password=false" type="button" style="width: 20%;">取消</button> -->
+						<div class="input-group">
+							<input type="text" style="width: 50%;" v-model="password.old" placeholder="旧密码"  class="form-control">
+							<input type="text" style="width: 50%;"  v-model="password.new" placeholder="新密码"  class="form-control">
+							<span type="submit" class="input-group-addon">提交</span>
+							<span   @click="show.password=false" type="button" class="input-group-addon">取消</span>
+
+						</div>
 					</form>
 					<div v-else>
 						<span class="key">密码</span>
@@ -122,6 +141,9 @@ export default {
 .card{
 	padding:20px 40px;
 
+}
+.value{
+margin-left: 5px;
 }
 </style>
 

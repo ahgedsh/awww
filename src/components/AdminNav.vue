@@ -1,5 +1,6 @@
 <template>
-	<div :style="{width: width}" class="card  container side-nav">
+
+	<div :style="{width: width}" class="card   side-nav">
 		<router-link class="nav-item" to="/admin/category">分类管理</router-link>
 		<router-link class="nav-item" to="/admin/breed">品种管理</router-link>
 		<router-link class="nav-item" to="/admin/order">订单管理</router-link>
@@ -20,6 +21,7 @@ export default {
 .side-nav {
 	background: #fff;
 	margin-left: -15px;
+	max-width:280px;
 }
 
 .nav-item {
@@ -41,4 +43,5 @@ export default {
 	color:#fff;
 	
 }
+
 </style>

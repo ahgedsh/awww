@@ -35,8 +35,9 @@
                 <div id="mail-error"></div>
               </div>
             </div>
+            
 
-            <div class="input-control">
+            <!-- <div class="input-control">
               <label for="vcode">验证码</label>
               <div class='btn-group'>
                 <input type="text" style='width:70%;' id='vcode'  error-el="#vcode-error" v-model='current.vcode' placeholder="请输入验证码">
@@ -46,6 +47,22 @@
                 </button>
               </div>
               <div class='error-list'>
+                <div v-if='invalid_code' class='error'>验证码有误</div>
+                <div id='vcode-error'></div>
+              </div>
+            </div> -->
+            <div>
+
+               <label  class='code'>验证码</label>
+            <div class="input-group">
+
+              <input type="text" class="form-control"  autofocus   error-el="#vcode-error" v-model='current.vcode' >
+              <span class="input-group-addon" @click='send_code' :disabled='captcha.countdown !=0'>
+                 <span v-if='captcha.countdown'>{{captcha.countdown}}</span>
+                 <span v-else>获取验证码</span>
+                </span>
+            </div>
+             <div class='error-list'>
                 <div v-if='invalid_code' class='error'>验证码有误</div>
                 <div id='vcode-error'></div>
               </div>
@@ -234,5 +251,23 @@ button[type='button']{
   color: #fd521d;
   border-bottom: 2px solid #fd521d;
 }
+.code{
+  margin-top: 15px;
+}
+.input-group-addon,
+.form-control {
+  border-radius:0px;
+}
+.input-group{
+  border:2px solid rosybrown;
+  
+
+}
+.input-group-addon{
+  background:rgb(243, 154, 154);
+  border:rgb(243, 154, 154);
+  color:#fff;
+}
+
 </style>
 
