@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <div class='card'>
+    <div class='cards'>
       <div class='row'>
       <div class='pay_by' v-if="current.pay_by=='wechat'" >
         

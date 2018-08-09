@@ -136,7 +136,10 @@
                     </td>
                     
                     <td>{{row.price}}</td>
+                     <td>
+                       {{row.category}}
 
+                       </td>   
                     <td>{{row.$category && row.$category.id ||'-'}}</td>
                     <td>{{row.$category && row.$category.name ||'-'}}</td>
 

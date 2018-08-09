@@ -142,9 +142,10 @@ export default {
   text-align: right;
 }
 .main-form {
-  position: absolute;
-  right: 150px;
-  top: 100px;
+ width:300px;
+ position:fixed;
+ 
+ right:200px;
 }
 .header {
   
@@ -170,5 +171,8 @@ export default {
    }
   button{
     margin-top:20px;
+  }
+  .input-contail{
+    margin-top:10px;
   }
 </style>

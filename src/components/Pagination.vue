@@ -9,14 +9,14 @@
              :disabled='is_first_page'
 
              
-              @click='next()'>Prev</button>
+              @click='prev()'>Prev</button>
     </span>
       &nbsp;
     <span class='btn-group'>
       <button class='btn-small '
-       style='margin-left:0px'
+       style='margin:5px'
       :key='page'
-      v-if='Math.abs(page-current_page)<3'
+      v-if='Math.abs(page-current_page)<=half_limit || half_limit<1'
       @click='change(page)'
       :class="{active:current_page==page}"
       v-for='page in last_page'>{{page}}
@@ -30,7 +30,7 @@
     <span class='btn-group'>
       <button class='btn-small'
                 
-              @click='prev()'
+              @click='next()'
               :disabled='is_last_page'>Next</button>
       <button class='btn-small'
               :disabled='is_last_page'
@@ -49,6 +49,7 @@ export default{
     change(page){
       if(this.onChange)
       this.onChange(page);
+      this.$emit('pageChange',page);
 
       this.current_page=page;
 
@@ -81,7 +82,7 @@ export default{
     
       onChange   : {
         default () {
-          console.log(1);
+          //console.log(1);
         },
       },
     },
@@ -116,14 +117,19 @@ export default{
 
 </script>
 <style scoped>
+
 .pagination{
   margin-left:230px;
 }
 .pagination button{
   background: #fff;
-  border:1px solid rgba(0,0,0,.5);
+  border:1px solid rgb(229, 162, 162);
   
-} 
+}
+button.active{
+  background:rgb(229, 162, 162);
+  color:#fff;
+}
 
 
 </style>

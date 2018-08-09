@@ -165,9 +165,7 @@ td {
   padding: 5px 10px;
   text-align: left;
 }
-tr:hover {
-  background: rgba(0, 80, 200, 0.07);
-}
+
 table {
   width: 100%;
   border-collapse: collapse;

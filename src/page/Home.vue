@@ -22,14 +22,16 @@
     </div>
     <div class="container">
       <div class="main row">
-        <div class="col-sm-4">
+
+        <div class="col-sm-3"  v-for='row in list'>
           <div class='card'>
             <div class='smallcard'>
-
-              <img src="../assets/img/square-1.jpg" alt="" class="img-thumbnail">
-
+                <router-link :to="'/detail/'+row.id">               
+                  <img :src="row.cover_url ? row.cover_url :'http://wx3.sinaimg.cn/large/006qLr31ly1fu236blfpgj30be06omxh.jpg'" alt="" class="img-thumbnail">
+                </router-link>
               <div class="title center">
-                <h5>二狗子和喵喵</h5>
+                <h4>{{row.title}}</h4>
+                <h5>￥{{row.price}}</h5>
               </div>
               <div class="desc center">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio nisi non ut nam deserunt,
@@ -38,39 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
-          <div class='card'>
-            <div class='smallcard'>
-               
-              <img src="../assets/img/square-1.jpg" alt="" class="img-thumbnail">
-
-              <div class="title center">
-                <h5>二狗子和喵喵</h5>
-              </div>
-              <div class="desc center">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio nisi non ut nam deserunt,
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class='card'>
-            <div class='smallcard'>
-
-              <img src="../assets/img/square-1.jpg" alt="" class="img-thumbnail">
-
-              <div class="title center">
-                <h5>二狗子和喵喵</h5>
-              </div>
-              <div class="desc center">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio nisi non ut nam deserunt,
-
-              </div>
-            </div>
-          </div>
-        </div>
-
+      
       </div>
 
     </div>
@@ -78,22 +48,20 @@
      <div v-for='it in cat'>
         <div  class="head row">
         <div class="col-lg-4 left">
-          <span class='title'>{{it.name}}</span>
+            <router-link :to="'/search?category_id=' +it.id">
+              <span class='title'>
+              {{it.name}}</span>
+            </router-link>
 
         </div>
         <div  class="col-lg-8 right cat-nav">
           <span v-for='row in it.$breed'>
-          <a href="#">
-            {{row.name}}</a>
+            <router-link :to="'/search?breed_id=' + row.id">
+              {{row.name}}
+            </router-link>
 
           </span>
-          <!-- <a href="#">沙皮</a>
-          <a href="#">拉布拉多</a>
-          <a href="#">吉娃娃</a>
-          <a href="#">牛头</a>
-          <a href="#">博美</a>
-          <a href="#">柴犬</a>
-          <a href="#">金毛</a> -->
+         
         </div>
       </div>
       <div class="body">
@@ -109,11 +77,12 @@
             <div class='card'>
               <div class='smallcard'>
               <router-link :to="'/detail/' +pet.id">
-                <img :src="pet.cover_url" alt="" class="img-thumbnail">
+                <img :src="pet.cover_url ? pet.cover_url :'http://wx3.sinaimg.cn/large/006qLr31ly1fu236blfpgj30be06omxh.jpg'" alt="" class="img-thumbnail">
                </router-link>
 
                 <div class="title center">
-                  <h5>{{pet.title}}</h5>
+                  <h4>{{pet.title}}</h4>
+                  <h5>￥{{pet.price}}</h5>
                 </div>
                 <div class="desc center">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio nisi non ut nam deserunt,
@@ -148,6 +117,8 @@ export default {
     return {
       hot: [],
       cat: [],
+      list:[],
+    
      
       swiperOption: {
         keyboard: true,
@@ -165,11 +136,20 @@ export default {
   mounted() {
     this.read_hot();
     this.read_cat();
+    this.read_pet();
     //this.read_breed();
     
   },
 
   methods: {
+    read_pet(){
+      api('pet/read',{limit:4})
+         .then(r=>{
+           this.list=r.data || [];
+           console.log(this.list);
+
+         })
+    },
    
    
     read_hot() {
@@ -187,7 +167,7 @@ export default {
     },
     read_pet_by_cat() {
       this.cat.forEach(it => {
-        api("pet/read", { where: { category_id: it.id }, limit: 16 }).then(
+        api("pet/read", { where: { category_id: it.id }, limit: 8 }).then(
           r => {
             this.$set(it, "pet_list", r.data);
           //  console.log(r.data);
@@ -206,20 +186,20 @@ export default {
   width: 100%;
 }
 .card {
-  margin-top: 0;
+ 
   border: 2px solid rgb(229, 162, 162);
+ margin:10px 0;
+  
 }
 .card:hover {
   background: #fff;
 }
 .smallcard {
   padding: 15px;
+
 }
-.title {
-  color: rgb(229, 162, 162);
-  font-weight: bold;
-  margin-top:-10px;
-}
+
+
 .head {
   padding: 15px 0;
 

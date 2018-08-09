@@ -155,6 +155,7 @@ export default {
 
     send_code() {
       //设置验证码
+      console.log(1);
 
       if (this.captcha.countdown)
         //有倒计时返回
@@ -186,7 +187,7 @@ export default {
 
       api(`captcha/${action}`, {
         phone: this.current.phone,
-        email: this.current.mail
+        mail: this.current.mail
       })
         //发请求无论是phone或者mail
         .then(r => {

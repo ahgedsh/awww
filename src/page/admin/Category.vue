@@ -71,8 +71,8 @@
                 </tbody>
               </table>
             </div>
+            <Pagination :totalCount="total" :limit="limit" :onChange="on_page_change"/>
             </div>
-            <!--<Pagination :totalCount="total" :limit="limit" :onChange="on_page_change"/>-->
           </div>
         </div>
       </div>

@@ -130,6 +130,7 @@ export default {
       api('pet/find',{id})
          .then(r=>{
            this.current=r.data;
+           console.log(this.current);
          })
     }
   },
@@ -225,9 +226,7 @@ h1 {
   right: 20px;
   position: absolute;
 }
-.carts{
-  padding-left:30px;
-}
+
 .carts,
 .other-carts {
  

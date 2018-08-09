@@ -24,49 +24,7 @@
               <button type='submit' hidden>搜</button>
             </form>
 
-            <!-- <form v-if='show_form' @submit='cou($event)'>
-              <div class="input-control">
-                <label>订单号</label>
-                <input type="text" autocomplete="off" v-model="current.oid">
-              </div>
-             
-              <div class="input-control">
-                <label>总价</label>
-                <input type="text" autocomplete="off" v-model="current.sum">
-              </div>
-              
-              <div class="input-control">
-                <label>用户</label>
-                 <Dropdown :list='user_list' :onSelect='set_user_id' displayKey="username"/>
-              </div>
-
-              <div class="input-control">
-                <label>备注</label>
-                <textarea type="text"  v-model="current.memo"></textarea>
-              </div>
-               <div class="input-control">
-                <label>产品详情</label>
-                <textarea type="text"  v-model="current. product_info"></textarea>
-              </div>
-              <div class="input-control">
-                <label>支付渠道
-                支付宝<input  type="radio" name='name'v-model="current. pay_by">
-                微信<input type="radio" name='name' v-model="current. pay_by">
-              
-                </label>
-              
-               
-              </div>
-
-              
-              <div class="input-control">
-                <div class='btn-group'>
-                  <button class="btn-primary" type="submit">提交</button>
-                  <button type="button" @click='show_form=false'>取消</button>
-                </div>
-
-              </div>
-            </form> -->
+          
             <div class='table'>
               <table>
                 <thead>
@@ -130,7 +88,7 @@ export default {
      user_list: [],
 
       model: "order",
-      searchable: ["name"],
+      searchable: ["oid"],
 
      // with: [{ model: "user", type: "has_one" }]
     };

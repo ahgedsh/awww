@@ -66,10 +66,18 @@ export default {
 		}).then(r => {
 			let row;
 
-			if ((row = r.data[0]) && row.password === password)
+			// console.log(r.data)
+			// return;
+			// 一个等号是赋值，两个等号是比较，比较当前这一条是否和返回的r.data[0]是否相等
+			if ((row =r.data && r.data[ 0 ]) && row.password === password)
+			{
 				return row;
 
-			return false;
+			}else{
+				return false;
+
+			}
+
 		});
 	},
 

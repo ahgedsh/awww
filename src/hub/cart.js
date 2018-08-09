@@ -11,7 +11,7 @@ export function all() {
 export function read() {
   api('cart/read', { key_by: 'id', with: 'has_one:pet', limit: 50 })
     .then(r => {
-      console.log(r.data);
+     // console.log(r.data);
       Vue.set(hub, 'cart', r.data);//等于hub.cart=r.data;
 
     })
@@ -43,10 +43,17 @@ export function update(id, row) {
 
 };
 
-export function count() {
-  return Object.keys(hub.cars).length;
-  console.log(Object.keys(hub.cars).length)
-};
+// export function count() {
+//   return Object.keys(hub.cars).length;
+//   console.log(Object.keys(hub.cars).length)
+// };
+
+export function count () {
+  if (!hub.cart)
+    return 0;
+
+  return Object.keys(hub.cart).length;
+}
 
 export function find_by_pet_id(pet_id) {
   for (let id in hub.cart) {

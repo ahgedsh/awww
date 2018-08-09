@@ -31,6 +31,8 @@ import User from './page/admin/User.vue'
 import Order from './page/admin/Order.vue'
 import Pet from './page/admin/Pet.vue'
 
+import session  from './lib/session';
+
 
 Vue.use(Router)
 
@@ -97,6 +99,28 @@ Vue.config.productionTip = false
   ],
 });
 
+
+router.beforeEach((to,from,next)=>{
+  let go_admin=to.fullPath.startsWith('/admin/');
+
+  let go_publish=to.fullPath.startsWith('/publish');
+
+  if(go_publish && !session.logged_in()){
+    alert('请先登录，如果没有账号请先注册；管理员账号如下，用户名：admin，密码：yoyoyo');
+    next('/login');
+    return;
+
+  }
+
+  if(go_admin && !session.is_admin()){
+    alert('请先使用管理员账号登录，用户名：admin,密码：yoyoyo')
+    next('/login');
+    return;
+  }else{
+    next();
+    document.title = to.meta.title;
+  }
+});
 new Vue({
   router,
   render: h => h(App),

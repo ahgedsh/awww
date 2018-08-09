@@ -57,6 +57,7 @@
       </div>
 
     </div>
+    
 
   </div>
 </template>
@@ -133,6 +134,9 @@ export default {
 table{
 	padding:20px 40px;
 
+}
+td{
+  padding:10px 0 ;
 }
 </style>
 
