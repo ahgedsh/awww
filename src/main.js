@@ -46,13 +46,13 @@ Vue.config.productionTip = false
 
  const router = new Router({
   routes: [
-    { path: '/', component: Home },
-    { path: '/detail/:id', component: Detail },
-    { path: '/Search', component: Search },
-    { path: '/new_order/:pet_id?', component: NewOrder },
-    { path: '/pay/:oid', component: Pay },
-    { path: '/Login', component: Login },
-    { path: '/Signup', component: Signup },
+    { path: '/', component: Home,meta : { title : '首页 - AWWW' } },
+    { path: '/detail/:id', component: Detail,meta : { title : '详情 -AWWW ' } },
+    { path: '/Search', component: Search,meta : { title : '搜索 - AWWW' }},
+    { path: '/new_order/:pet_id?', component: NewOrder,meta : { title : '订单 - AWWW' } },
+    { path: '/pay/:oid', component: Pay,meta : { title : '支付 - AWWW' } },
+    { path: '/Login', component: Login,meta : { title : '登录 - AWWW' } },
+    { path: '/Signup', component: Signup,meta : { title : '注册 - AWWW' } },
     {
       path:'/me',
       component:Me,
@@ -60,10 +60,14 @@ Vue.config.productionTip = false
         {
           path:'order',
       component:MeOrder,
+      meta : { title : '我的订单 - AWWW' }
+
+
     },
     {
       path:'setting',
   component:MeSetting,
+  meta : { title : '我的设置 - AWWW' }
 }
   ]
     },
@@ -77,22 +81,27 @@ Vue.config.productionTip = false
         {
           path      : 'category',
           component : Category,
+          meta : { title : '分类管理 - AWWW' }
         },
         {
           path      : 'breed',
           component : Breed,
+          meta : { title : '品种管理 - AWWW' }
         },
         {
           path      : 'user',
           component : User,
+          meta : { title : '用户管理 - AWWW' }
         },
         {
           path      : 'order',
           component : Order,
+          meta : { title : '订单管理 - AWWW' }
         },
         {
           path      : 'pet',
           component : Pet,
+          meta : { title : '宠物管理- AWWW' }
         },
       ],
     },
