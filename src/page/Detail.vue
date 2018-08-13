@@ -48,6 +48,7 @@
               </div>
 
             </div>
+            {{current}}
               <h1>{{current.title}}</h1>
     
               
@@ -151,6 +152,14 @@ export default {
 
 
 <style scoped>
+.other-carts:hover,
+.carts:active,
+.buy:active{
+  background:rgb(235, 160, 160);
+
+}
+
+
 .silder img {
   width: 100%;
 }

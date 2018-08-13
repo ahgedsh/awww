@@ -38,18 +38,19 @@
             <input type="checkbox" v-model='it._checked'>
           </div>
           <div class="col-lg-2">
-            <img src="../assets/img/square-1.jpg" alt="">
+          
+            <img :src="it.$pet && it.$pet.cover_url" alt="">
           </div>
           <div class="col-lg-4">
             <div class="pet-title">{{it.$pet.title}}</div>
             <div class="price">单价:￥{{it.$pet && it.$pet.price}}</div>
             <div class="price">小计:{{it.$pet && it.$pet.price*it.count}}</div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3" style='padding:0px;'>
             <div class="btn-group">
-              <button type='button' @click='it.count>1 && it.count--'>-</button>
-              <input type="text" v-model='it.count'>
-              <button type='button' @click='it.count++'>+</button>
+              <button style='border-right:0px;' class='col-sm-3' type='button' @click='it.count>1 && it.count--'>-</button>
+              <input  class='col-sm-6' type="text" v-model='it.count'>
+              <button style='border-left:0px;' class='col-sm-3' type='button' @click='it.count++'>+</button>
 
             </div>
           </div>
@@ -158,11 +159,7 @@ export default{
 .toolbar-container{
  color: #fff;
 }
-.link{
-  text-decoration:none;
- 
-  
-}
+
 
 .toolbar-container,
 .cart {

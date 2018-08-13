@@ -10,42 +10,42 @@
           <h1>创建订单-{{this.from_cart ? '购物车结算' : pet.title}}</h1>
           <div v-if='current.pet_id'>
             <div class='cute-form'>
-              <span class='key'>单价</span>
+              <span class='key'>单价：</span>
               <span class='value'>{{pet.price}}</span>
             </div>
             <div class='cute-form'>
-              <span class='key'>数量</span>
+              <span class='key'>数量：</span>
               <span class='value'>{{this.current.count}}</span>
             </div>
           </div>
           <div v-else>
-             <div v-for='(it,key) in hub.cart' class='item row'>
-          <div class="col-lg-1">
-            <input type="checkbox" v-model='it._checked'>
-          </div>
-          <div class="col-lg-2">
-            <img src="../assets/img/square-1.jpg" alt="">
-          </div>
-          <div class="col-lg-4">
-            <div class="pet-title">{{it.$pet.title}}</div>
-            <div class="price">单价:￥{{it.$pet && it.$pet.price}}</div>
-            <div class="price">小计:{{it.$pet && it.$pet.price*it.count}}</div>
-          </div>
-          <div class="col-lg-3">
-            <div class="btn-group">
-              <button type='button' @click='it.count>1 && it.count--'>-</button>
-              <input type="text" v-model='it.count'>
-              <button type='button' @click='it.count++'>+</button>
+            <div v-for='(it,key) in hub.cart' class='item row'>
+              <div class="col-lg-1">
+                <input type="checkbox" v-model='it._checked'>
+              </div>
+              <div class="col-lg-2">
+                <img src="../assets/img/square-1.jpg" alt="">
+              </div>
+              <div class="col-lg-4">
+                <div class="pet-title">{{it.$pet.title}}</div>
+                <div class="price">单价:￥{{it.$pet && it.$pet.price}}</div>
+                <div class="price">小计:{{it.$pet && it.$pet.price*it.count}}</div>
+              </div>
+              <div class="col-lg-3">
+                <div class="btn-group">
+                  <button type='button' @click='it.count>1 && it.count--'>-</button>
+                  <input type="text" v-model='it.count'>
+                  <button type='button' @click='it.count++'>+</button>
 
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <button @click='remove(it.id)'>删除</button>
+              </div>
             </div>
           </div>
-          <div class="col-lg-2">
-            <button @click='remove(it.id)'>删除</button>
-          </div>
-        </div>
-          </div>
           <div class='cute-form'>
-            <span class='key'>总价</span>
+            <span class='key'>总价：</span>
             <span class='value'>{{total}}</span>
           </div>
           <div class='cute-form'>
@@ -55,7 +55,8 @@
             </span>
           </div>
 
-          <h4>请选择支付方式</h4>
+          <div class='cute-form'>
+             <h4>请选择支付方式</h4>
           <div>
             <div class="row ">
               <img class='col-lg-5' src="../assets/img/wechat.jpg" alt="">
@@ -71,6 +72,7 @@
 
             </div>
 
+          </div>
           </div>
 
           <button @click='submit'>提交订单</button>
@@ -88,8 +90,7 @@ import api from "../lib/api";
 import Nav from "../components/Nav";
 import session from "../lib/session";
 import { generate_oid } from "../lib/order";
-import {all,each} from '../hub/cart';
-
+import { all, each } from "../hub/cart";
 
 export default {
   components: { Nav },
@@ -104,60 +105,54 @@ export default {
     //        })
     console.log(this.$route.query);
     this.current = Object.assign({}, this.current, this.$route.params);
-    this.from_cart=this.$route.query.from_cart;
+    this.from_cart = this.$route.query.from_cart;
     this.find(this.current.pet_id); //找id
   },
   data() {
     return {
-      from_cart:false,
+      from_cart: false,
       submitted: false,
       current: {
         pay_by: "wechat"
       },
       pet: {},
-      hub:all(),
+      hub: all(),
       // payment_url:null,
       qrcode: null
     };
   },
   computed: {
-    checked_cart(){
-      let cart=this.hub.cart;
-      let checked={};
-      each(it=>{
-        if(!it._checked)
-        return;
-        checked[id]=it;
-
+    checked_cart() {
+      let cart = this.hub.cart;
+      let checked = {};
+      each(it => {
+        if (!it._checked) return;
+        checked[id] = it;
       });
     },
     total() {
-      let total=0;
+      let total = 0;
       //计算总价钱
       //if (!this.pet.price) this.pet.price = 0;
-      if(this.form_cart){
-        each(it=>{
-          if(!it._checked)
-          return;
-          total+=it.$pet.price*it.count;
+      if (this.form_cart) {
+        each(it => {
+          if (!it._checked) return;
+          total += it.$pet.price * it.count;
         });
-      }else{
-        if(!this.pet.price)
-        this.pet.price=0;
+      } else {
+        if (!this.pet.price) this.pet.price = 0;
         if (!this.current.count);
         this.current.count = 1;
 
-        total=this.pet.price*this.current.count;
+        total = this.pet.price * this.current.count;
       }
-
 
       return total;
     }
   },
   methods: {
     find(id) {
-      if(!id)
-      return;
+      if (!id) return;
       api("pet/find", { id }).then(r => {
         this.pet = r.data;
         console.log(this.pet);
@@ -193,6 +188,9 @@ h1,
 button {
   text-align: center;
 }
+h1{
+  margin-top:10px;
+}
 
 button {
   padding: 10px 40px;
@@ -203,13 +201,13 @@ button {
   background: #fff;
 }
 img {
-  width: 100px;
+  width: 70px;
   height: auto;
 }
 
 .pay {
   display: inline-block;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 </style>
 

@@ -5,7 +5,7 @@
       <div class='row'>
       <div class='pay_by' v-if="current.pay_by=='wechat'" >
         
-        <div class='chat col-lg-4 col-lg-offset-4'>
+        <div class='chat col-lg-5 col-lg-offset-5'>
           <div class='center'>
            <div v-if="current.pay_by=='wechat'">
             <h3>微信支付</h3> 

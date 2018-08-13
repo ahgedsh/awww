@@ -81,7 +81,7 @@ export default {
       if(unique === 'admin' && password==='yoyoyo'){
         this.on_login_succeed({ id:1,username:'admin',is_admin:'true'});
         return;
-       };
+       };     
       // api('user/read',{
       //   where:{
       //     or:[
@@ -138,6 +138,19 @@ export default {
   
 }
 
+
+
+.btn-primary
+
+{
+  background:rgb(231, 160, 160);
+  border-color:rgb(231, 160, 160);
+  
+}
+.btn-primary:hover{
+      background: rgb(248, 130, 130);
+      border-color: rgb(248, 130, 130);
+  }
 .time {
   text-align: right;
 }

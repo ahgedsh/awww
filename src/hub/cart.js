@@ -11,7 +11,7 @@ export function all() {
 export function read() {
   api('cart/read', { key_by: 'id', with: 'has_one:pet', limit: 50 })
     .then(r => {
-     // console.log(r.data);
+      console.log(r.data);
       Vue.set(hub, 'cart', r.data);//等于hub.cart=r.data;
 
     })

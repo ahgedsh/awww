@@ -88,32 +88,31 @@ export default{
   font-size: 40px;
   font-weight: bold;
 }
-.nav {
-  padding: 15px 0;
-  margin-left: 0px;
-  margin-right: 0px;
-}
+
 .nav .icon{
   width:30px;
   display: inline-block;
-  margin-bottom:0;
+ 
+  margin-top:-10px;
+  margin-bottom:0px;
   cursor: pointer;
   
 }
 
 .nav a,
 .logout{
-  font-size: 20px;
+  font-size: 22px;
   margin: 10px;
   color: rgb(229, 162, 162);
   text-decoration: none;
 }
-.nav .logo a {
-  font-size: 25px;
+.nav .logo {
+  
+  font-size: 30px;
 }
 
-.nav {
-  border: 3px solid rosybrown;
+.nav  {
+
 }
 </style>
 

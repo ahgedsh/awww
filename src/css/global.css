@@ -11,7 +11,7 @@ input[type=checkbox]{
   width:auto;
 }
 .smallcard img{
-  width:auto;
+  width:240px;
   height:150px;
   margin-bottom: 0px;
 }
@@ -45,18 +45,20 @@ body{
     
    
   }
+ 
 
   .btn-primary {
    
-    background-color:rgb(231, 160, 160);
+    background:rgb(231, 160, 160);
     border-color: rgb(231, 160, 160);
    
     -webkit-background-size: 100%;background-size: 100%;
     text-shadow: 0 0 1px rgba(0, 0, 0, .4);
   }
+  
   .btn-primary:hover{
-      background: rgb(243, 154, 154); 
-      border-color:rgb(243, 154, 154); 
+      background: rgb(248, 130, 130);
+      border-color: rgb(248, 130, 130);
   }
 
   .btn-large {
@@ -88,7 +90,10 @@ textarea[disabled] {
   cursor: not-allowed;
 }
 
+.btn-primary{
+  background:rgb(231, 160, 160);
 
+}
 
 
 button{
@@ -126,7 +131,9 @@ table {
   border-collapse: collapse;
 }
 
-tr:hover {
+tr:hover,
+.breed-link:hover,
+。siderbar .title:hover {
   background:rgb(243, 232, 232);
 }
 td{
@@ -139,6 +146,7 @@ td{
   cursor: pointer;
 
 }
+
 .disabled{
   pointer-events: none;
   opacity: 0.7;
@@ -146,7 +154,7 @@ td{
 
 .card {
   margin-top: 0;
-  border: 2px solid rgb(229, 162, 162);
+  background: rgb(248, 246, 246);
 }
 .card:hover {
   background: #fff;

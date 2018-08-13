@@ -204,6 +204,17 @@ export default {
   margin-top:50px;
    
 } */
+.btn-primary
+
+{
+  background:rgb(231, 160, 160);
+  border-color:rgb(231, 160, 160);
+  
+}
+.btn-primary:hover{
+      background: rgb(248, 130, 130);
+      border-color: rgb(248, 130, 130);
+  }
 
 button[type='button']{
   
@@ -249,8 +260,8 @@ button[type='button']{
   padding: 5px;
 }
 .tab-title > *.active {
-  color: #fd521d;
-  border-bottom: 2px solid #fd521d;
+  color: rgb(243, 154, 154);
+  border-bottom: 2px solid rgb(243, 154, 154);
 }
 .code{
   margin-top: 15px;
