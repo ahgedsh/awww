@@ -54,7 +54,7 @@
             BUSINESS INTEGRITY
 
           </div>
-          <div>诚信商家</div>
+          <div>诚信商家ss</div>
 
         </div>
         <div class="col-sm-3 serve">
